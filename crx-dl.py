@@ -17,8 +17,6 @@ options = arg_parser.parse_args(sys.argv[1:])
 ext_url_str = options.url
 ext_url = urlparse.urlparse(ext_url_str)
 ext_id = os.path.basename(ext_url.path)
-print(ext_url)
-print(ext_id)
 
 crx_base_url = 'https://clients2.google.com/service/update2/crx'
 crx_params = urllib.urlencode({
@@ -28,12 +26,11 @@ crx_params = urllib.urlencode({
     'x': 'id=' + ext_id + '&uc'
 })
 crx_url = crx_base_url + '?' + crx_params
+crx_file = options.filename
 
-print('Downloading {}...'.format(crx_url))
+print('Downloading {} to {} ...'.format(crx_url, crx_file))
 
-with open(options.filename, 'w') as file:
-    response = urllib2.urlopen(crx_url)
-    file.write(response.read())
+with open(crx_file, 'w') as file:
+    file.write(urllib2.urlopen(crx_url).read())
 
-
-# print(content)
+print('Success!')

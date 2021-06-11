@@ -18,7 +18,9 @@ positional arguments:
 For example:
 
 ```
-python crx-dl.py https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb translate.crx
+python crx-dl.py \
+    https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb \
+    translate.crx
 ```
 
 The above command will download the Google Translate extensions to a file named `translate.crx` in the current working directory.

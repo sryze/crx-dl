@@ -23,12 +23,12 @@ python crx-dl.py \
     translate.crx
 ```
 
-The above command will download the Google Translate extensions to a file named `translate.crx` in the current working directory.
+The above command will download the Google Translate extension to a file named `translate.crx` in the current working directory.
 
-To extract the contents of the CRX file, you can run:
+To extract the contents of the CRX file, you can use `unzip` on Unix-like systems:
 
 ```
 unzip translate.crx -d translate
 ```
 
-or just open it as a ZIP file in your archive manager program.
+or just open it as a ZIP file in your favorite archive manager program.

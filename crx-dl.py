@@ -16,8 +16,12 @@ except ModuleNotFoundError:
 arg_parser = argparse.ArgumentParser(description='Chrome extension downloader')
 arg_parser.add_argument('url',
     help='URL of the extension in the Chrome Web Store')
-arg_parser.add_argument('filename',
-    help='Where to save the .CRX file')
+arg_parser.add_argument('-q', '--quiet',
+    action='store_true',
+    help='suppress all messages')
+arg_parser.add_argument('-o', '--output-file',
+    required=False,
+    help='where to save the .CRX file')
 options = arg_parser.parse_args(sys.argv[1:])
 
 ext_url_str = options.url
@@ -32,11 +36,13 @@ crx_params = urlencode({
     'x': 'id=' + ext_id + '&uc'
 })
 crx_url = crx_base_url + '?' + crx_params
-crx_file = options.filename
+crx_path = options.output_file if options.output_file is not None else ext_id + '.crx'
 
-print('Downloading {} to {} ...'.format(crx_url, crx_file))
+if not options.quiet:
+    print('Downloading {} to {} ...'.format(crx_url, crx_path))
 
-with open(crx_file, 'wb') as file:
+with open(crx_path, 'wb') as file:
     file.write(urlopen(crx_url).read())
 
-print('Success!')
+if not options.quiet:
+    print('Success!')

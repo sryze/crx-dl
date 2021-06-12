@@ -6,13 +6,18 @@ This is just a simple script to automate the download of Google Chrome extension
 Usage:
 
 ```
-crx-dl.py [-h] url filename
+crx-dl.py [-h] [-q] [-o OUTPUT_FILE] url
 
 Chrome extension downloader
 
 positional arguments:
-  url         URL of the extension in the Chrome Web Store
-  filename    Where to save the .CRX file
+  url                   URL of the extension in the Chrome Web Store
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -q, --quiet           suppress all messages
+  -o OUTPUT_FILE, --output-file OUTPUT_FILE
+                        where to save the .CRX file
 ```
 
 For example:

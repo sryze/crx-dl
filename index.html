@@ -3,15 +3,26 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
     <title>Chrome Extension Downloader</title>
-    <meta name="description" content="Chrome Extension Downloader - download any Google Chrome extension from the Chrome Web Store and save it to disk for inspection or offline installation">
+    <meta name="description" content="Chrome Extension Downloader - download any Google Chrome extension from the Chrome Web Store">
     <meta name="author" content="Sergey Zolotarev">
-
+    
     <link rel="stylesheet" href="main.css?v=20210614">
 </head>
 
 <body>
+    <div class="container">
+        <form class="form" method="GET" action="" id="form">
+            <div class="inputs">
+                <input type="url" required name="url" class="url-input" placeholder="Paste extension URL here...">
+                <input type="submit" value="Download" class="submit-button">
+            </div>
+        </form>
+    </div>
+
     <script src="main.js?v=20210614"></script>
 </body>
 </html>

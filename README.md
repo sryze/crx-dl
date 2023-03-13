@@ -1,9 +1,11 @@
 crx-dl
 ======
 
-This is just a simple script to automate the download of Google Chrome extensions from the Chrome Web Store.
+This is just a simple script to automate the downloading of Google Chrome extensions (.CRX files)
+from the Chrome Web Store.
 
-Usage:
+Usage
+-----
 
 ```
 crx-dl.py [-h] [-q] [-o OUTPUT_FILE] id_or_url
@@ -35,3 +37,8 @@ unzip translate.crx -d translate
 ```
 
 or just open it as a ZIP file in your favorite archive manager program.
+
+Via Browser
+-----------
+
+There is also a web version of this script available [here](https://sryze.github.io/crx-dl/).

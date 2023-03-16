@@ -25,7 +25,7 @@ For example:
 ```
 python crx-dl.py \
     https://chrome.google.com/webstore/detail/google-translate/aapbdbdomjkkjkaonfhkkikfgjllcleb \
-    translate.crx
+    -o translate.crx
 ```
 
 The above command will download the Google Translate extension to a file named `translate.crx` in the current working directory.

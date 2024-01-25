@@ -1,14 +1,16 @@
 (function() {
-    var STORE_DOMAIN = 'chrome.google.com';
-    var STORE_BASE_PATH = '/webstore/detail/';
+    var STORE_URL_INFO = [
+        {host: 'chrome.google.com', basePath: '/webstore/detail/'},
+        {host: 'chromewebstore.google.com', basePath: '/detail/'}
+    ];
     var CRX_BASE_URL = 'https://clients2.google.com/service/update2/crx';
 
     var form = document.getElementById('form');
     var downloadLink = document.getElementById('downloadLink');
-    
+
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-    
+
         form.action = '';
 
         var urlStr = form.url.value;
@@ -16,14 +18,24 @@
             alert('Please enter a URL');
             return;
         }
-    
+
         var url = new URL(urlStr);
-        if (url.host != STORE_DOMAIN
-            || !url.pathname.startsWith(STORE_BASE_PATH)) {
-            alert('Please enter a valid extension link that starts with ' + STORE_DOMAIN + STORE_BASE_PATH);
+        var isValidStoreUrl = false;
+        var validPrefixes = [];
+        for (var i = 0; i < STORE_URL_INFO.length; i++) {
+            var info = STORE_URL_INFO[i];
+            if (url.host == info.host
+                && (url.pathname || '').startsWith(info.basePath)) {
+                isValidStoreUrl = true;
+            }
+            validPrefixes.push('https://' + info.host + info.basePath);
+        }
+        if (!isValidStoreUrl) {
+            alert('Please enter a valid extension link that begins with either of:\n'
+                + validPrefixes.join('\n'));
             return;
         }
-    
+
         var extId = url.pathname.split('/').pop();
         var crxUrlParams = new URLSearchParams({
             response: 'redirect',

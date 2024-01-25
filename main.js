@@ -13,7 +13,7 @@
 
         form.action = '';
 
-        var urlStr = form.url.value;
+        var urlStr = (form.url.value || '').trim();
         if (!urlStr) {
             alert('Please enter a URL');
             return;

@@ -33,7 +33,7 @@ except:
 crx_base_url = 'https://clients2.google.com/service/update2/crx'
 crx_params = urlencode({
     'response': 'redirect',
-    'prodversion': '91.0',
+    'prodversion': '133.0',
     'acceptformat': 'crx2,crx3',
     'x': 'id=' + ext_id + '&uc'
 })

@@ -39,7 +39,7 @@
         var extId = url.pathname.split('/').pop();
         var crxUrlParams = new URLSearchParams({
             response: 'redirect',
-            prodversion: '91.0',
+            prodversion: '133.0',
             acceptformat: 'crx2,crx3',
             x: 'id=' + extId + '&uc'
         });
